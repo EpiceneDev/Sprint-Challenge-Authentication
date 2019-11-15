@@ -38,7 +38,7 @@ router.post('/login', (req, res) => {
   Users.findBy({ username })
     .first()
     .then(user => {
-      // console.log("USER>>>", user)
+    
       if (user && bcrypt.compareSync(password, user.password)) {
         const token = generateToken(user);
         console.log("TOKEN///", token)
@@ -60,9 +60,8 @@ function generateToken(user) {
   const payload = {
     subject: user.id,
     username: user.username,
-    role: "student" //probably come from db
+    role: "student" 
   };
-
 
   const options = { 
     expiresIn: "1d"
@@ -85,8 +84,5 @@ router.post('/logout', function(req, res) {
     });
   }
 });
-
-
-
 
 module.exports = router;
