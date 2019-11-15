@@ -40,11 +40,25 @@ Demonstrate your understanding of this week's concepts by answering the followin
 
 - [ ] What is the purpose of using _sessions_?
 
+    To hold an object (cookie) with keys/credentials that will allow access to a app and/or route designed to be private.
+
 - [ ] What does bcrypt do to help us store passwords in a secure manner.
+
+    Bcrypt is used to hash passwords. Hash is turning the password into a random string, and it is done only one way so cannot be unhashed.
 
 - [ ] What does bcrypt do to slow down attackers?
 
+    Hashing can be done a number of times. The number of times the hash is run (it can be run on itself), in effect, enlarges the "haystack" the hacker has to sift through to find the targeted info.
+
 - [ ] What are the three parts of the JSON Web Token?
+
+    Seperated by . the following composes a JWT.
+
+    1. Claims - the header and it's key: value pairs such as type of algorithym and type of token.
+
+    2. Payload - the data that is not sensitive like name, subject (often the id) and time info.
+
+    3. Verification/Signature - Where the secret on the server must match the incoming signature so that the server knows it hasn't been altered. 
 
 ## Minimum Viable Product
 
