@@ -13,7 +13,8 @@ router.post('/register', (req, res) => {
   const validateResult = validateUser(user);
 
   if (validateResult.isSuccessful === true) {
-    const hash = bcrypt.hashSync(user.password, 10);
+    const hash = bcrypt.hashSync(user.password, 12);
+
     user.password = hash;
 
     Users.add(user)
@@ -70,9 +71,10 @@ function generateToken(user) {
   return jwt.sign(payload, secrets.jwtSecret, options);
 }
 
+
 router.post('/logout', function(req, res) {
   if (req.session) {
-    // delete session object
+    
     req.session.destroy(err => {
       if(err) {
         return res.redirect('/');
